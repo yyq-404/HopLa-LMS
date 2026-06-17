@@ -65,6 +65,23 @@ providers:
     #  - "\n"
     #quick_action_params:
     #  temperature: 0.0
+  LMSTUDIO:
+    enabled: true
+    completion_model: qwen2.5-coder-3b
+    completion_endpoint: http://localhost:1234/v1/completions
+    completion_prompt: "<|fim_prefix|>@before<|fim_suffix|>@after<|fim_middle|>"
+    completion_params:
+      temperature: 0.0
+      max_tokens: 15
+    completion_stops:
+      - "\n"
+    chat_model: qwen2.5-coder-7b
+    chat_endpoint: http://localhost:1234/api/v1/chat
+    quick_action_model: qwen2.5-coder-7b
+    quick_action_endpoint: http://localhost:1234/api/v1/chat
+    #api_key: lm-studio
+    #headers:
+    #  Authorization: "Bearer lm-studio"
   BURP:
     enabled: true
     #chat_system_prompt: REPLACE_ME
@@ -75,9 +92,9 @@ providers:
       temperature: 0.0
 
 defaults:
-  chat_provider: OLLAMA # OLLAMA, OPENAI, GEMINI, BURP
-  completion_provider: OLLAMA # OLLAMA, OPENAI, GEMINI, BURP
-  quick_action_provider: OLLAMA # OLLAMA, OPENAI, GEMINI, BURP
+  chat_provider: OLLAMA # OLLAMA, OPENAI, GEMINI, BURP, LMSTUDIO
+  completion_provider: OLLAMA # OLLAMA, OPENAI, GEMINI, BURP, LMSTUDIO
+  quick_action_provider: OLLAMA # OLLAMA, OPENAI, GEMINI, BURP, LMSTUDIO
   timeout_sec: 60
 
 prompts:

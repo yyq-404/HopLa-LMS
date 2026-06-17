@@ -1,13 +1,13 @@
-Uuid: 48006894b97966581660047517ea3f42
+Uuid: a5e9d3f20b7c461d8f2a1e5c39d8b042
 ExtensionType: 1
-Name: HopLa
-RepoName: HopLa
+Name: HopLa-LMS
+RepoName: HopLa-LMS
 ScreenVersion: 2.0
 SerialVersion: 0
 MinPlatformVersion: 4
 ProOnly: False
 Author: Alexis Danizan
 ShortDescription: Enables autocompletion for payloads and AI features.
-EntryPoint: releases/HopLa.jar
+EntryPoint: releases/HopLa-LMS.jar
 BuildCommand: gradle build
 SupportedProducts: Pro, Community

@@ -8,7 +8,7 @@ group = 'com.hopla'
 version = '2.2.0'
 
 // Allow external AI providers
-def externalAIEnabled = false
+def externalAIEnabled = true 
 
 repositories {
     mavenCentral()
@@ -72,7 +72,6 @@ tasks.register('encryptResource') {
 }
 
 tasks.register('updateVersion') {
-
     def constantsFile = file('src/main/java/com/hopla/Constants.java')
     def newVersion = project.version.toString()
     def content = constantsFile.getText("UTF-8")
@@ -85,7 +84,6 @@ tasks.register('updateVersion') {
 }
 
 tasks.register('externalAI') {
-
     def constantsFile = file('src/main/java/com/hopla/Constants.java')
     def content = constantsFile.getText("UTF-8")
     def updated = content.replaceAll(

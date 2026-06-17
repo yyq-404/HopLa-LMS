@@ -197,7 +197,6 @@ public class AutoCompleteMenu {
     }
 
     public static class DebouncedSwingWorker<T, V> {
-        private Supplier<SwingWorker<T, V>> workerSupplier;
         private SwingWorker<T, V> currentWorker;
 
         public DebouncedSwingWorker() {

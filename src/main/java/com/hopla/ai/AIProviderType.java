@@ -4,7 +4,8 @@ public enum AIProviderType {
     OLLAMA("Ollama"),
     GEMINI("Gemini"),
     OPENAI("OpenAI"),
-    BURP("Burp");
+    BURP("Burp"),
+    LMSTUDIO("LM Studio");
 
     private final String displayName;
 

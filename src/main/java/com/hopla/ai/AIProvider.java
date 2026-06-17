@@ -18,7 +18,6 @@ import static com.hopla.Constants.EXTERNAL_AI;
 
 public abstract class AIProvider {
     protected static Gson gson = new Gson();
-    private final AtomicLong lastInvocationTime = new AtomicLong(0);
     public AIProviderType type;
     protected String providerName;
     protected LLMConfig config;

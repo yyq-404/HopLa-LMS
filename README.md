@@ -57,13 +57,13 @@ for_window [class=".*burp-StartBurp.*" title="^ $"] floating enable
 
 ### Configure AI providers
 
-HopLa supports multiple AI providers (OpenAI, Gemini, Ollama), but AI-powered autocompletion is only available with Ollama.
+HopLa supports multiple AI providers (OpenAI, Gemini, Ollama, LM Studio).
 
-| Features          | Ollama | Gemini | OpenAI |
-|-------------------|:------:|:------:|:------:|
-| Chat              | ✅ Yes  | ✅ Yes  | ✅ Yes  |
-| Autocompletion    | ✅ Yes  |  ❌ No  |  ❌ No  |
-| Quick Action      | ✅ Yes  | ✅ Yes  | ✅ Yes  |
+| Features          | Ollama | Gemini | OpenAI | LM Studio |
+|-------------------|:------:|:------:|:------:|:---------:|
+| Chat              | ✅ Yes  | ✅ Yes  | ✅ Yes  |   ✅ Yes   |
+| Autocompletion    | ✅ Yes  |  ❌ No  |  ❌ No  |   ✅ Yes   |
+| Quick Action      | ✅ Yes  | ✅ Yes  | ✅ Yes  |   ✅ Yes   |
 
 
 The YAML configuration file for AI is structured as follows (a sample file can be exported from the HopLa menu):
@@ -136,6 +136,23 @@ providers:
     #  - "\n"
     #quick_action_params:
     #  temperature: 0.0
+  LMSTUDIO:
+    enabled: true
+    completion_model: qwen2.5-coder-3b
+    completion_endpoint: http://localhost:1234/v1/completions
+    completion_prompt: "<|fim_prefix|>@before<|fim_suffix|>@after<|fim_middle|>"
+    completion_params:
+      temperature: 0.0
+      max_tokens: 15
+    completion_stops:
+      - "\n"
+    chat_model: qwen2.5-coder-7b
+    chat_endpoint: http://localhost:1234/api/v1/chat
+    quick_action_model: qwen2.5-coder-7b
+    quick_action_endpoint: http://localhost:1234/api/v1/chat
+    #api_key: lm-studio
+    #headers:
+    #  Authorization: "Bearer lm-studio"
   BURP:
     enabled: true
     #chat_system_prompt: REPLACE_ME
@@ -146,9 +163,9 @@ providers:
       temperature: 0.0
 
 defaults:
-  chat_provider: OLLAMA # OLLAMA, OPENAI, GEMINI, BURP
-  completion_provider: OLLAMA # OLLAMA, OPENAI, GEMINI, BURP
-  quick_action_provider: OLLAMA # OLLAMA, OPENAI, GEMINI, BURP
+  chat_provider: OLLAMA # OLLAMA, OPENAI, GEMINI, BURP, LMSTUDIO
+  completion_provider: OLLAMA # OLLAMA, OPENAI, GEMINI, BURP, LMSTUDIO
+  quick_action_provider: OLLAMA # OLLAMA, OPENAI, GEMINI, BURP, LMSTUDIO
   timeout_sec: 60
 
 prompts:

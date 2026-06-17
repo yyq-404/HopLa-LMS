@@ -11,6 +11,8 @@ public class AIProviderFactory {
                 return new OpenAIProvider(config, providerConfig);
             case BURP:
                 return new BurpProvider(config, providerConfig);
+            case LMSTUDIO:
+                return new LMStudioProvider(config, providerConfig);
             default:
                 throw new IllegalArgumentException("Provider unsupported: " + type);
         }
